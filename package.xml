@@ -5,7 +5,7 @@
   <version>1.0.0</version>
   <date>2026-02-24</date>
   <maintainer email="churms@gmail.com">Cecil Churms</maintainer>
-  <license file="LICENSE">LGPL-2.1-or-later</license>
+  <license file="LICENSE">GPL-3.0-only</license>
   <url type="repository" branch="main">https://github.com/cecilchurms/FreeCAD-PlanarMechSim.git</url>
   <url type="readme">https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/README.md</url>
   <icon>icons/PlanarMechSim.svg</icon>
