@@ -8,7 +8,7 @@
   <license file="LICENSE">LGPL-2.1-or-later</license>
   <url type="repository" branch="main">https://github.com/cecilchurms/FreeCAD-PlanarMechSim.git</url>
   <url type="readme">https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/README.md</url>
-  <icon>icons/Icon1n.png</icon>
+  <icon>icons/PlanarMechSim.svg</icon>
 
   <content>
     <workbench>
