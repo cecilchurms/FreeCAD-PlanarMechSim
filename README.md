@@ -1,4 +1,4 @@
-# <em><b>PlanarMechSim</em>
+# <h1>PlanarMechSim</h1>
 # <h2>A Planar Mechanical Simulator Workbench for FreeCAD&nbsp;1.x</h2>
 # <h3>Calculation and Simulation of the Dynamics of Planar Multibody Mechanical Systems</h3>
 
