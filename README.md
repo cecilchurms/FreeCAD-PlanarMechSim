@@ -11,7 +11,7 @@ The <em>PlanarMechSim</em> FreeCAD WorkBench is a planar multibody dynamics work
 
 # <h4>Step 1</h4>
 Create an assembly of objects using FreeCAD's Assembly workbench.  The assembly must be drawn so that any movement which the bodies will
-exprience is in the X-Y plane.  All of the joints used to assemble the assembly must currently be either <em>Fixed</em> joints or <em>Revolute</em> joints.
+exprience is in the X-Y plane.  All of the joints used to assemble the assembly must be either <em>Fixed</em> [<em>Welded</em>] joints, <em>Revolute</em> joints. <em>Slider</em> [<em>Translational</em>] joints, or a <em>Distance</em> joint between a <em>Revolute</em> axis and a <em>Revolute</em> axis [<em>Revolute-Revolute</em> joint] or a <em>Distance</em> joint between a <em>Revolute</em> axis and a <em>Sliding</em> axis [<em>Pin in Slot</em> joint].  Some other joints available to the Assembly workbench allow motion along a third axis, and are not applicable to a Planar Mechanical Simulator.  Disc and gear-like joints will be implemented soon.
 
 For example, we have created the following assembly:<br>
 ![Example Assembly](./Documentation/Images/ExampleAssembly.png)<br><br>
@@ -75,6 +75,10 @@ Due to the decimal point vs decimal comma variations world-wide, the delimiter i
 
 By way of example, a spreadsheet window is reproduced below, showing the values of the reaction forces (lambdas) at a specific joint, and a graphical representation of the data.<br><br>
 ![Lambda Spreadsheet](./Documentation/Images/LambdaSpreadsheet.png)<br><br>
+
+Demonstration models are available to illustrate some of the various situations which PlanarMechSim can simulate.  These can be found in the PlanarMechSim addon directory of your FreeCAD. In Linux they are often found in "**.local/share/FreeCAD/Mod/PlanarMechSim/PlanarMechSim-Demo-Models/**, with a similar location under **My Documents** in Windows distributions.  The exact location can depend on your distribution, and how you installed FreeCAD.  Simply load the model, enterter the PlanarMechSim workbench, initialise the workbench with the [![initialise Icon](./icons/PlanarMechSim1.png)] icon, set up the solver paramerters with the solver [![Solver Icon](./icons/PlanarMechSim2.png)] icon and calculate by pressing **Solve**.  Once the solver dialog closes, you may run the Animation to see the results, or load the full data into your spreadsheet and visualise the results graphically or otherwise.
+
+It is wise to delete all the containers in your model from **SimGlobals** downwards, before saving or re-initialising and running PlanarMechSim again with another configuration.  This is specially true when you have saved a model which has already  been simulated, as the **SimGlobals** and below, containers are not saved and re-loaded in their entirety.  Simply delete **SimGlobals** and below, and press the re-initialise icon of PlanarMechSim before re-running it.
 
 # <h3>Future plans</h3>
 PlanarMechSim is a living project.  In time, all the planar joints of FreeCAD's assembly workbench will be implemented seamlessly.  Furthermore, whereas at present, gravity is the only force acting on the system, the implementation of many other forces (e.g. springs, dampers etc) will be rolled out in the future.

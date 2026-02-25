@@ -106,10 +106,15 @@ class SimGlobalClass:
             # Start out with an undefined type - which will be changed if the joint has a valid joint type
             ST.addObjectProperty(joint, "SimJoint", "Undefined", "App::PropertyString", "Bodies and constraints", "Type of joint as seen by the simulator")
 
+            # Transfer a copy of the JointType property to the SimJoint property
+            if hasattr(joint, "JointType"):
+                setattr(joint, "SimJoint", joint.JointType)
+            # Set the SimJoint property with a new name where applicable
+            # e.g. Fixed joints which are internal to a body become internal joints
+            ST.translateToPlanarMechSimJointNames(allObjects, joint)
+
             # Add these properties to only joints having a valid PlanarMechSim joint type
-            if hasattr(joint, "JointType") and ST.JOINT_TYPE_DICTIONARY[joint.JointType] <= ST.MAXNUMJOINTTYPES:
-                # Transfer a copy of the JointType property to the SimJoint property
-                setattr(joint, "SimJoint" , joint.JointType)
+            if ST.JOINT_TYPE_DICTIONARY[joint.SimJoint] <= ST.MAXNUMJOINTTYPES:
 
                 # Add these required properties to each of the joints we will handle
                 ST.addObjectProperty(joint, "Bi", -1, "App::PropertyInteger", "JointPoints", "The index of the body containing the head of the joint")
@@ -231,10 +236,6 @@ class SimGlobalClass:
             #    ST.MessNoLF("Placement2: "+joint.Name)
             #    ST.MessNoLF(" - ")
             #    ST.Mess(joint.Placement2)
-
-            # Set the SimJoint property with a new name where applicable
-            # e.g. Fixed joints which are internal to a body become internal joints
-            ST.translateToPlanarMechSimJointNames(allObjects, joint)
 
             # Now only consider joints for which PlanarMechSim has code to handle them
             if hasattr(joint, "SimJoint") and ST.JOINT_TYPE_DICTIONARY[joint.SimJoint] <= ST.MAXNUMJOINTTYPES:

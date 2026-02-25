@@ -72,12 +72,12 @@ import numpy as np
 
 Debug = False
 #  -------------------------------------------------------------------------
-MAXNUMJOINTTYPES = 2
+MAXNUMJOINTTYPES = 4
 JOINT_TYPE_DICTIONARY = {
                         "Revolute": 0,
-                        "Revolute-Revolute": 1,
-                        "Fixed": 2,
-                        "Translation": 3,
+                        "Fixed": 1,
+                        "Translation": 2,
+                        "Revolute-Revolute": 3,
                         "Translation-Revolute": 4,
                         "Disc": 5,
                         "Slider": 6,

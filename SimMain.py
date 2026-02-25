@@ -104,28 +104,21 @@ class SimMainC:
         self.simDelta = simDelta
         self.correctInitial = correctInitial
 
-        #"Revolute": 0,
-        #"Revolute-Revolute": 1,
-        #"Fixed": 2,
-        #"Translation": 3,
-        #"Translation-Revolute": 4,
-        #"Disc": 5,
-
         # Dictionary of the pointers for Dynamic calling of the Acceleration functions
         self.dictAccelerationFunctions = {
             0: self.Revolute_gamma,
-            1: self.Revolute_Revolute_gamma,
-            2: self.Fixed_gamma,
-            3: self.Translation_gamma,
+            1: self.Fixed_gamma,
+            2: self.Translation_gamma,
+            3: self.Revolute_Revolute_gamma,
             4: self.Translation_Revolute_gamma,
             5: self.Disc_gamma,
         }
         # Dictionary of the pointers for Dynamic calling of the constraint functions
         self.dictconstraintFunctions = {
             0: self.Revolute_constraint,
-            1: self.Revolute_Revolute_constraint,
-            2: self.Fixed_constraint,
-            3: self.Translation_constraint,
+            1: self.Fixed_constraint,
+            2: self.Translation_constraint,
+            3: self.Revolute_Revolute_constraint,
             4: self.Translation_Revolute_constraint,
             5: self.Disc_constraint,
         }
@@ -133,9 +126,9 @@ class SimMainC:
         # Dictionary of the pointers for Dynamic calling of the Jacobian functions
         self.dictJacobianFunctions = {
             0: self.Revolute_Jacobian,
-            1: self.Revolute_Revolute_Jacobian,
-            2: self.Fixed_Jacobian,
-            3: self.Translation_Jacobian,
+            1: self.Fixed_Jacobian,
+            2: self.Translation_Jacobian,
+            3: self.Revolute_Revolute_Jacobian,
             4: self.Translation_Revolute_Jacobian,
             5: self.Disc_Jacobian,
         }
@@ -469,13 +462,13 @@ class SimMainC:
                 elif joint.SimJoint == "Revolute-Revolute":
                     joint.mConstraints = 1
                     joint.nBodies = 2
-                    joint.lengthLink = joint.Distance
+                    joint.lengthLink = joint.Distance.Value
 
                 # ***********************************************
                 elif joint.SimJoint == "Translation-Revolute":
                     joint.mConstraints = 1
                     joint.nBodies = 2
-                    joint.lengthLink = joint.Distance
+                    joint.lengthLink = joint.Distance.Value
 
                 # ***********************************************
                 elif joint.SimJoint == "Disc":
@@ -1046,7 +1039,30 @@ class SimMainC:
     #  -------------------------------------------------------------------------
     def Revolute_Revolute_gamma(self, joint, tick):
         """ Evaluate gamma for a Revolute-Revolute joint """
+        """
+        Nikravesh:
+        Pi = Joints(Ji).iPindex;
+        Pj = Joints(Ji).jPindex;
+        Bi = Joints(Ji).iBindex;
+        Bj = Joints(Ji).jBindex;
+        
+        d = Points(Pi).rP - Points(Pj).rP;
+        d_d = Points(Pi).rP_d - Points(Pj).rP_d;
+        L = Joints(Ji).L;
+        
+        u = d / L;
+        u_d = d_d / L;
 
+        f = - u_d' * d_d;
+
+    if Bi == 0
+        f = f + u' * s_rot(Points(Pj).sP_d) * Bodies(Bj).p_d;
+    elseif Bj == 0:
+        f = f - u' * s_rot(Points(Pi).sP_d) * Bodies(Bi).p_d;
+    else
+        f = f - u' * (s_rot(Points(Pi).sP_d*Bodies(Bi).p_d - Points(Pj).sP_d * Bodies(Bj).p_d));
+    end
+    """
         diff = self.NPpoint_r[joint.Bi, joint.Pi] - self.NPpoint_r[joint.Bj, joint.Pj]
         diffDot = self.NPpoint_drdt[joint.Bi, joint.Pi] - self.NPpoint_drdt[joint.Bj, joint.Pj]
         jointUnitVec = diff / joint.lengthLink
@@ -1055,16 +1071,15 @@ class SimMainC:
         gamma = -jointUnitVecDot.dot(diffDot)
 
         if joint.Bi == 0:
-            gammai = np.array([0.0, 0.0])
+            gammai = 0.0
         else:
             gammai = ST.Rot90NumPy(jointUnitVec).dot(self.NPpoint_dsdt[joint.Bi, joint.Pi] *
                                                     self.NPbody_dphidt[joint.Bi])
 
         if joint.Bj == 0:
-            gammaj = np.array([0.0, 0.0])
+            gammaj = 0.0
         else:
-            gammaj = ST.Rot90NumPy(jointUnitVec).dot(-self.NPpoint_dsdt[joint.Bj, joint.Pj] *
-                                                      self.NPbody_dphidt[joint.Bj])
+            gammaj = ST.Rot90NumPy(jointUnitVec).dot(-self.NPpoint_dsdt[joint.Bj, joint.Pj] * self.NPbody_dphidt[joint.Bj])
 
         return gamma + gammai + gammaj
     #  =========================================================================
@@ -1259,9 +1274,9 @@ class SimMainC:
     def Disc_constraint(self, joint, tick):
         """ Evaluate the constraints for a Disc/wheel/pinion joint """
 
-        return np.array([(self.NPbody_r[joint.Bj, 1] - joint.Distance),
+        return np.array([(self.NPbody_r[joint.Bj, 1] - joint.Distance.Value),
                          ((self.NPbody_r[joint.Bj, 0] - joint.x0) +
-                          joint.Distance * (self.NPbody_phi[joint.Bj] - joint.phi0))])
+                          joint.Distance.Value * (self.NPbody_phi[joint.Bj] - joint.phi0))])
     #  -------------------------------------------------------------------------
     def Disc_Jacobian(self, joint):
         """ Evaluate the Jacobian for a Disc joint """
