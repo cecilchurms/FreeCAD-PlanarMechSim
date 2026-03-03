@@ -5,7 +5,7 @@
 # <h3>[Previously "NikraDAP" for FreeCAD 0.x]</h3>
 
 The <em>PlanarMechSim</em> FreeCAD WorkBench is a planar multibody dynamics workbench that is based on the DAP solver algorithm developed by P.E.&nbsp;Nikravesh in his book: <em>PLANAR MULTIBODY DYNAMICS: Formulation, Programming with MATLAB, and Applications</em>, 2nd Edition, *P.E.&nbsp;Nikravesh*, CRC&nbsp;Press, 2018<br><br>
-![Example of DAP](./Documentation/Images/QuadPendulum.gif)<br><br>
+![Example of DAP](./Resources/Media/QuadPendulum.gif)<br><br>
 
 # <h3>Running PlanarMechSim in a 7 step Nutshell</h3>
 
@@ -14,25 +14,25 @@ Create an assembly of objects using FreeCAD's Assembly workbench.  The assembly 
 exprience is in the X-Y plane.  All of the joints used to assemble the assembly must be either <em>Fixed</em> [<em>Welded</em>] joints, <em>Revolute</em> joints. <em>Slider</em> [<em>Translational</em>] joints, or a <em>Distance</em> joint between a <em>Revolute</em> axis and a <em>Revolute</em> axis [<em>Revolute-Revolute</em> joint] or a <em>Distance</em> joint between a <em>Revolute</em> axis and a <em>Sliding</em> axis [<em>Pin in Slot</em> joint].  Some other joints available to the Assembly workbench allow motion along a third axis, and are not applicable to a Planar Mechanical Simulator.  Disc and gear-like joints will be implemented soon.
 
 For example, we have created the following assembly:<br>
-![Example Assembly](./Documentation/Images/ExampleAssembly.png)<br><br>
+![Example Assembly](./Resources/Media/ExampleAssembly.png)<br><br>
 
 # <h4>Step 2</h4>
 Link all the stationary components in the assembly into a simple group.  It is important that the <em>first</em> linked group contain all the stationary components.
 
 The linking process is illustrated in the following image:<br>
-![Linking stationary components](./Documentation/Images/StationaryLink.png)<br><br>
+![Linking stationary components](./Resources/Media/Images/StationaryLink.png)<br><br>
 
 # <h4>Step 3</h4>
 Link all the other components into groups - preferably with all the components in one solid body, linked into one group.  It should
 be noted that it is not strictly necessary that components joined with <em>Fixed</em> joints in the Assembly workbench must all be joined together into the same group.  PlanarMechSim is capable of handling <em>Fixed</em> joints without any trouble.  However, each <em>Fixed</em> joint which must be included in the calculations, increases the time required for the calculations.  Thus each <em>Fixed</em> joint which has been included inside a linked group, improves time efficiency.
 
 # <h4>Step 4</h4>
-Enter the PlanarMechSim workbench and press the first PlanarMechSim icon [![initialise Icon](./icons/PlanarMechSim1.png)].  The Simulation is initialised.  It can be seen that the linked groups have been renamed as <em>SimBody</em>XX.  Two new containers have also been created, namely <em>SimGlobals</em> and <em>SimForces</em>.  Should it be required to re-initialise the workbench, these two containers (and any ones below them) can simply be deleted and the icon pressed again.
+Enter the PlanarMechSim workbench and press the first PlanarMechSim icon [![initialise Icon](./Resources/Icons/PlanarMechSim1.png)].  The Simulation is initialised.  It can be seen that the linked groups have been renamed as <em>SimBody</em>XX.  Two new containers have also been created, namely <em>SimGlobals</em> and <em>SimForces</em>.  Should it be required to re-initialise the workbench, these two containers (and any ones below them) can simply be deleted and the icon pressed again.
 
 # <h4>Step 5</h4>
-Press the second PlanarMechSim icon[![Solver Icon](./icons/PlanarMechSim2.png)].  The solver dialog box will open.  The various regions of the dialog box are as follows:<br><br>
+Press the second PlanarMechSim icon[![Solver Icon](./Resources/Icons/PlanarMechSim2.png)].  The solver dialog box will open.  The various regions of the dialog box are as follows:<br><br>
 
-![Solver Dialog](./Documentation/Images/SolverDialog.png)<br><br>
+![Solver Dialog](./Resources/Media/SolverDialog.png)<br><br>
 A: <em>Calculation Time</em>:  Values can be entered here for the total length of time the simulation will run, and the
 time resolution at which it will be calculated
 
@@ -57,8 +57,8 @@ names will be self-evident to those who have sufficient knowledge to want to sel
 G:  <em>Solve Button</em>: Pressing this button initiates the calculations.  Once completed, the dialog closes automatically.
 
 # <h4>Step 6</h4>
-Once the calculations are completed (which could take quite a few minutes), the solver dialog will close automatically.  Now press the third PlanarMechSim icon[![Animate Icon](./icons/PlanarMechSim3.png)].  The animation dialog box will open.  The various regions of the dialog box are as follows:<br><br>
-![Animation Dialog](./Documentation/Images/AnimationDialog.png)<br><br>
+Once the calculations are completed (which could take quite a few minutes), the solver dialog will close automatically.  Now press the third PlanarMechSim icon[![Animate Icon](./Resources/Icons/PlanarMechSim3.png)].  The animation dialog box will open.  The various regions of the dialog box are as follows:<br><br>
+![Animation Dialog](./Resources/Media/Images/AnimationDialog.png)<br><br>
 A:  Pressing these buttons start/stop the animation which can be selected to loop as well.
 
 B:  This value affects the speed at which the animation is played.  The speed=1.00 speed is dependent on the computer hardware, and so
@@ -74,9 +74,9 @@ specified.  Load the spreadsheet into your software of choice.  This spreadsheet
 Due to the decimal point vs decimal comma variations world-wide, the delimiter in the file has been chosen to be a space.  If supported by your spreadsheet program, also tick <em>Merge Delimiters</em> or the equivalent, as sometimes more than one space separates two values.
 
 By way of example, a spreadsheet window is reproduced below, showing the values of the reaction forces (lambdas) at a specific joint, and a graphical representation of the data.<br><br>
-![Lambda Spreadsheet](./Documentation/Images/LambdaSpreadsheet.png)<br><br>
+![Lambda Spreadsheet](./Resources/Media/LambdaSpreadsheet.png)<br><br>
 
-Demonstration models are available to illustrate some of the various situations which PlanarMechSim can simulate.  These can be found in the PlanarMechSim addon directory of your FreeCAD. In Linux they are often found in "**.local/share/FreeCAD/Mod/PlanarMechSim/PlanarMechSim-Demo-Models/**, with a similar location under **My Documents** in Windows distributions.  The exact location can depend on your distribution, and how you installed FreeCAD.  Simply load the model, enterter the PlanarMechSim workbench, initialise the workbench with the [![initialise Icon](./icons/PlanarMechSim1.png)] icon, set up the solver paramerters with the solver [![Solver Icon](./icons/PlanarMechSim2.png)] icon and calculate by pressing **Solve**.  Once the solver dialog closes, you may run the Animation to see the results, or load the full data into your spreadsheet and visualise the results graphically or otherwise.
+Demonstration models are available to illustrate some of the various situations which PlanarMechSim can simulate.  These can be found in the PlanarMechSim addon directory of your FreeCAD. In Linux they are often found in "**.local/share/FreeCAD/Mod/PlanarMechSim/PlanarMechSim-Demo-Models/**, with a similar location under **My Documents** in Windows distributions.  The exact location can depend on your distribution, and how you installed FreeCAD.  Simply load the model, enterter the PlanarMechSim workbench, initialise the workbench with the [![initialise Icon](./Resources/Icons/PlanarMechSim1.png)] icon, set up the solver paramerters with the solver [![Solver Icon](./icons/PlanarMechSim2.png)] icon and calculate by pressing **Solve**.  Once the solver dialog closes, you may run the Animation to see the results, or load the full data into your spreadsheet and visualise the results graphically or otherwise.
 
 A whole lot of various objects have been created, and included in the demo models.  They appear at the top of the tree, before the **Assembler** container. Most of these objects are not used in the Demo models, but they are included for you to experiment with.
 
@@ -89,11 +89,11 @@ PlanarMechSim is a living project.  In time, all the planar joints of FreeCAD's 
 
 <em>Watch this space</em>
 
-![Under Development](./Documentation/Images/Child.jpg)<br><br>
+![Under Development](./Resources/Media/Child.jpg)<br><br>
 <em>Please be patient:  The software and documentation is still in the process of development.</em>
 # ---------------------------------------
 Cecil Churms,<br>
 Johannesburg,<br>
 South Africa.<br><br>
-Documentation Last updated: 24th February 2026<br>
+Documentation Last updated: 3rd March 2026<br>
 
