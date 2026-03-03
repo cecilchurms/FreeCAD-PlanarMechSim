@@ -5,7 +5,7 @@
 # <h3>[Previously "NikraDAP" for FreeCAD 0.x]</h3>
 
 The <em>PlanarMechSim</em> FreeCAD WorkBench is a planar multibody dynamics workbench that is based on the DAP solver algorithm developed by P.E.&nbsp;Nikravesh in his book: <em>PLANAR MULTIBODY DYNAMICS: Formulation, Programming with MATLAB, and Applications</em>, 2nd Edition, *P.E.&nbsp;Nikravesh*, CRC&nbsp;Press, 2018<br><br>
-![Example of DAP](./Documentation/Images/QuadPendulum.webm)<br><br>
+![Example of DAP](./Documentation/Images/QuadPendulum.gif)<br><br>
 
 # <h3>Running PlanarMechSim in a 7 step Nutshell</h3>
 
