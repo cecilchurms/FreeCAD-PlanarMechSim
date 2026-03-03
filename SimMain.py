@@ -134,8 +134,8 @@ class SimMainC:
         }
 
         # Store the required accuracy figures
-        self.relativeTolerance = 10 ** (-Accuracy)
-        self.absoluteTolerance = 10 ** (-Accuracy-4)
+        self.relativeTolerance = 10 ** (-Accuracy-2)
+        self.absoluteTolerance = 10 ** (-Accuracy-6)
 
         # Counter of function evaluations
         self.Counter = 0
