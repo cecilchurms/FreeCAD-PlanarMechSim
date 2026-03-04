@@ -72,7 +72,7 @@
 
     <url
         type = 'documentation'
-    >https://github.com/cecilchurms/FreeCAD-PlanarMechSim/tree/master/Documentation</url>
+    >https://github.com/cecilchurms/FreeCAD-PlanarMechSim/tree/master/Documentation/PlanarMechSim-HOWTOs.md</url>
 
     <url
         branch = 'master'
