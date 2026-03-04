@@ -72,7 +72,7 @@
 
     <url
         type = 'documentation'
-    >https://github.com/cecilchurms/FreeCAD-PlanarMechSim/tree/master/Documentation/PlanarMechSim-HOWTOs.md</url>
+	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/Documentation/PlanarmechSim-HOWTOs.md</url>
 
     <url
         branch = 'master'
@@ -85,7 +85,7 @@
 
     <url
         type = 'readme'
-	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/Documentation/README.md
+	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/README.md</url>
 
     <!--[ Content ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
