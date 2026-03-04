@@ -12,7 +12,7 @@ Simulation of the <em>actual motion</em> of a quadruple pendulum using PlanarMec
 
 ## Introduction
 
-The **PlanarMechSim** FreeCAD WorkBench is a planar rigid body dynamics workbench that is based on the DAP solver algorithm developed by P.E.&nbsp;Nikravesh in his book: ** *PLANAR MULTIBODY DYNAMICS*: Formulation, Programming with MATLAB, and Applications**, 2nd Edition, *P.E.&nbsp;Nikravesh*, CRC&nbsp;Press, 2018
+The **PlanarMechSim** FreeCAD WorkBench is a planar rigid body dynamics workbench that is based on the DAP solver algorithm developed by P.E.&nbsp;Nikravesh in his book: **PLANAR MULTIBODY DYNAMICS**: *Formulation, Programming with MATLAB, and Applications*, 2nd Edition, *P.E.&nbsp;Nikravesh*, CRC&nbsp;Press, 2018
 
 If a user has built a mechanism which allows motion of its components within only the **x-y** plane under the force of gravity acting in the **-Y** direction, then the entire assembly can be fed into **PlanarMechSim** which will then calculate the development of the positions of all its constituent bodies as a function of time.  The resultant movement of all the sub-bodies of the mechanism can then be viewed on the screen, or further graphically analysed using a spreadsheet.
 
