@@ -1,7 +1,10 @@
 # SPDX-License-Identifier: LGPL-3.0-or-later
+# SPDX-FileNotice: Part of the PlanarMechSim addon.
 # SPDX-FileNotice: https://EditorConfig.org
 
+
 root = true
+
 
 [*.{toml,xml,py,md}]
 insert_final_newline = false
