@@ -1,0 +1,12 @@
+# SPDX-FileNotice: Part of the PlanarMechSim addon
+
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "editorconfig.editorconfig",
+        "theqtcompany.qt-ui",
+        "aaron-bond.better-comments",
+        "redhat.vscode-xml",
+        "astral-sh.ty"
+    ]
+}

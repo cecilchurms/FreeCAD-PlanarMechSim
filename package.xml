@@ -1,3 +1,5 @@
+# SPDX-FileNotice: Part of the PlanarMechSim addon
+
 <?xml
     version = '1.0.0'
     encoding = 'UTF-8'
@@ -13,7 +15,7 @@
     <freecadmin>1.1</freecadmin>
     <pythonmin>3.11</pythonmin>
     <version>1.0.0</version>
-    <date>2026-03-04</date>
+    <date>2026-03-05</date>
 
     <!--[ Dependencies ]―――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -33,8 +35,8 @@
 
     <!--[ Info ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <description> A Planar Real-World Mechanical Simulator Workbench for FreeCAD 1.1+</description>
-    <name>Minimal</name>
+    <description> A Planar Real-World Mechanical Simulator Workbench</description>
+    <name>PlanarMechSim</name>
 
     <!--[ Tags ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -57,22 +59,22 @@
     <!--[ Licenses ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <license
-        file = 'LICENSE-CODE'
+        file = 'LICENSE-Code'
     >LGPL-3.0-or-later</license>
 
     <license
-        file = 'LICENSE-ICON'
+        file = 'LICENSE-Assets'
     >CC-BY-SA-4.0</license>
 
     <!--[ Icon ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <icon>cecilchurms/FreeCAD-PlanarMechSim/blob/master/Resources/Icons/PlanarMechSim.svg</icon>
+    <icon>FreeCAD-PlanarMechSim/blob/master/Resources/Icons/PlanarMechSim.svg</icon>
 
     <!--[ Urls ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <url
         type = 'documentation'
-	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/Documentation/PlanarmechSim-HOWTOs.md</url>
+	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/README.md</url>
 
     <url
         branch = 'master'

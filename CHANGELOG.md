@@ -1,9 +1,10 @@
+<!-- SPDX-FileNotice: Part of the PlanarMechSim addon -->
 
 # Changelog
 
 <br/>
 
-## [1.0.0] - 2026-03-01
+## [1.0.0] - 2026-03-05
 
 ### Fixed
 
