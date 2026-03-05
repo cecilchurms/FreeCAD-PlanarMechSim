@@ -1,14 +1,12 @@
-# SPDX-FileNotice: Part of the PlanarMechSim addon
-
-<?xml
-    version = '1.0.0'
-    encoding = 'UTF-8'
-    standalone = 'no'
-?>
+<?xml version = '1.0.0' encoding = 'UTF-8' standalone = 'no' ?>
 <package
     format = '1'
     xmlns = 'https://wiki.freecad.org/Package_Metadata'
 >
+
+    <!--[ Info ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
+    <description> A Planar Real-World Mechanical Simulator Workbench</description>
+    <name>PlanarMechSim</name>
 
     <!--[ Versions ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -28,15 +26,6 @@
         version_gte = '1.17.0'
         type = 'python'
     >scipy</depend>
-
-    <depend
-        type = 'internal'
-    >assembly</depend>
-
-    <!--[ Info ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
-
-    <description> A Planar Real-World Mechanical Simulator Workbench</description>
-    <name>PlanarMechSim</name>
 
     <!--[ Tags ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -68,7 +57,7 @@
 
     <!--[ Icon ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
-    <icon>FreeCAD-PlanarMechSim/blob/master/Resources/Icons/PlanarMechSim.svg</icon>
+    <icon>Resources/Icons/PlanarMechSim.svg</icon>
 
     <!--[ Urls ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -79,7 +68,7 @@
     <url
         branch = 'master'
         type = 'repository'
-	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim</url>
+	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/</url>
 
     <url
         type = 'bugtracker'
@@ -92,7 +81,6 @@
     <!--[ Content ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <content>
-        <other/>
     </content>
 
 </package>

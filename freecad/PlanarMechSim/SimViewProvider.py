@@ -80,7 +80,7 @@ class ViewProviderSimGlobalClass:
     def getIcon(self):
         """Returns the full path to the simGlobal icon (Icon2n.png)"""
 
-        return SM.getIconPath("icons", "Icon2n.png")
+        return SM.getIconPath("Resources/Icons", "Icon2n.png")
     #  -------------------------------------------------------------------------
     def updateData(self, obj, prop):
         return
@@ -101,7 +101,7 @@ class ViewProviderSimSolverClass:
     def getIcon(self):
         """Returns the full path to the solver icon (Icon7n.png)"""
 
-        return SM.getIconPath("icons", "Icon7n.png")
+        return SM.getIconPath("Resources/Icons", "Icon7n.png")
     #  -------------------------------------------------------------------------
     def attach(self, solverViewObject):
 
@@ -150,7 +150,7 @@ class ViewProviderSimAnimateClass:
     def getIcon(self):
         """Returns the full path to the animation icon (Icon8n.png)"""
 
-        return SM.getIconPath("icons", "Icon8n.png")
+        return SM.getIconPath("Resources/Icons", "Icon8n.png")
     # -------------------------------------------------------------------------------------------------
     def attach(self, animateViewObject):
 

@@ -82,7 +82,7 @@ class CommandSimGlobalClass:
         Returns a dictionary defining the icon, the menu text and the tooltip"""
 
         return {
-            "Pixmap": SM.getIconPath("icons", "Icon2n.png"),
+            "Pixmap": SM.getIconPath("Resources/Icons", "Icon2n.png"),
             "MenuText": QtCore.QT_TRANSLATE_NOOP("SimGlobalAlias", "Initialise PlanarMechSim"),
             "ToolTip": QtCore.QT_TRANSLATE_NOOP("SimGlobalAlias", "Initialises the PlanarMechSim workbench"),
         }
@@ -144,7 +144,7 @@ class CommandSimSolverClass:
         Returns a dictionary defining the icon, the menu text and the tooltip"""
 
         return {
-            "Pixmap": SM.getIconPath("icons", "Icon7n.png"),
+            "Pixmap": SM.getIconPath("Resources/Icons", "Icon7n.png"),
             "MenuText": QtCore.QT_TRANSLATE_NOOP("SimSolverAlias", "Run the analysis"),
             "ToolTip": QtCore.QT_TRANSLATE_NOOP("SimSolverAlias", "Run the Planar Mechanical Simulator analysis"),
         }
@@ -193,7 +193,7 @@ class CommandSimAnimationClass:
         Returns a dictionary defining the icon, the menu text and the tooltip"""
 
         return {
-            "Pixmap": SM.getIconPath("icons", "Icon8n.png"),
+            "Pixmap": SM.getIconPath("Resources/Icons", "Icon8n.png"),
             "MenuText": QtCore.QT_TRANSLATE_NOOP("SimAnimationAlias", "Do Animation"),
             "ToolTip": QtCore.QT_TRANSLATE_NOOP("SimAnimationAlias", "Animates the motion of the bodies as determined by the analysis"),
         }

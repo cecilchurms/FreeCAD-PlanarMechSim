@@ -87,7 +87,7 @@ class PlanarMechSim(Workbench):
         from SimMakes import getIconPath
 
         # Set up the text for the Sim workbench option, the PlanarMechSim icon, and the tooltip
-        self.__class__.Icon = getIconPath("icons", "Icon1n.png")
+        self.__class__.Icon = getIconPath("Resources/Icons", "Icon1n.png")
         self.__class__.MenuText = "PlanarMechSim"
         self.__class__.ToolTip = "Mechanical objects simulator workbench based on Nikravesh's solver"
     #  -------------------------------------------------------------------------
