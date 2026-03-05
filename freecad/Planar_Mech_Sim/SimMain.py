@@ -1,7 +1,7 @@
 # ********************************************************************************
 # *                                                                              *
 # *   This program is free software; you can redistribute it and/or modify       *
-# *   it under the terms of the GNU General Public License v3.0 only             *
+# *   it under the terms of the GNU General Public License V3.0 or later         *
 # *   as published by the Free Software Foundation                               *
 # *   for detail see the LICENCE text file.                                      *
 # *                                                                              *
@@ -409,14 +409,14 @@ class SimMainC:
                         joint.nBodies = 2
                         if joint.fixDof is True:
                             joint.mConstraints = 3
-                            # Set the initial angle phi0 
+                            # Set the initial angle phi0
                             if joint.Bi == 0:
                                 self.NPphi0[joint.JointNumber] = -self.NPbody_phi[joint.Bj]
                             elif joint.Bj == 0:
                                 self.NPphi0[joint.JointNumber] = self.NPbody_phi[joint.Bi]
                             else:
                                 self.NPphi0[joint.JointNumber] = (
-                                        self.NPbody_phi[joint.Bi] 
+                                        self.NPbody_phi[joint.Bi]
                                         - self.NPbody_phi[joint.Bj])
 
                 # ***********************************************
@@ -497,7 +497,7 @@ class SimMainC:
         ###########################################
         # CLEAN UP ERRONEOUS INPUTS BEFORE STARTING
         ###########################################
-        
+
         # Correct for initial conditions consistency if requested
         if self.numConstraints != 0 and self.correctInitial:
             if self.correctInitialConditions() is False:
@@ -534,7 +534,7 @@ class SimMainC:
             ST.PrintNp1D(True, solution)
             ST.Mess("Delta velocity: ")
             ST.PrintNp1D(True, deltaVel)
-            
+
         # Move corrected velocities back into the system
         for bodyIndex in range(1, self.numBodies):
             self.NPbody_drdt[bodyIndex, 0] += deltaVel[(bodyIndex-1)*3]
@@ -605,12 +605,12 @@ class SimMainC:
         #       success                   True if 0 or +1 above
         # ###################################################################################
 
-        # Integrate the equations: 
-        #   <Dynamics function> 
-        #   (<start time>, <end time>) 
-        #   <position & velocity array> 
-        #   <times at which to evaluate> 
-        #   <relative Tolerance> 
+        # Integrate the equations:
+        #   <Dynamics function>
+        #   (<start time>, <end time>)
+        #   <position & velocity array>
+        #   <times at which to evaluate>
+        #   <relative Tolerance>
         #   <absolute Tolerance>
         startTime = time.time()
         solution = solve_ivp(self.Dynamics,
@@ -649,14 +649,14 @@ class SimMainC:
 
         if self.solverObj.FileName != "-":
             self.outputResults(solution.t, solution.y.T)
-            
+
     ##########################################
     #   This is the end of the actual solution
     #    The rest are all called subroutines
     ##########################################
     #  -------------------------------------------------------------------------
     def Dynamics(self, tick, NParray):
-        """The Dynamics function which takes a 1D NParray 
+        """The Dynamics function which takes a 1D NParray
         consisting of all the body world 3vectors concatenated to body velocity 3vectors
         and applies the physics of its movement to it,
         returning with a new NPDotArray
@@ -702,7 +702,7 @@ class SimMainC:
         if self.numConstraints == 0:
             for index in range(self.numMovBodiesx3):
                 accel.append = self.NPforceArray[index]/self.NPMasskg[index]
-                
+
         # We go through this process if we have any constraints
         else:
             Jacobian = self.GetJacobian()
@@ -728,7 +728,7 @@ class SimMainC:
             if Debug:
                 ST.Mess("Dynamics - rhsAccel:")
                 ST.PrintNp1D(True, rhsAccel)
-                
+
             # Combine Force Array and rhs of Acceleration constraints into one 1D array
             rhs = np.zeros((numBodPlusConstr,), dtype=np.float64)
             rhs[0: self.numMovBodiesx3] = self.NPforceArray
@@ -736,13 +736,13 @@ class SimMainC:
             if Debug:
                 ST.Mess("Dynamics - rhs:")
                 ST.PrintNp1D(True, rhs)
-                
+
             # Solve the JacMasJac augmented with the rhs
             solvedVector = np.linalg.solve(JacMasJac, rhs)
-            
+
             # First half of solution are the acceleration values
             accel = solvedVector[: self.numMovBodiesx3]
-            
+
             # Second half is Lambda which is reported in the output results routine
             self.Lambda = solvedVector[self.numMovBodiesx3:]
             if Debug:
@@ -760,7 +760,7 @@ class SimMainC:
             accelIndex = (bodyIndex-1) * 3
             self.NPbody_d2rdt2[bodyIndex] = accel[accelIndex], accel[accelIndex + 1]
             self.NPbody_d2phidt2[bodyIndex] = accel[accelIndex + 2]
-            
+
         index1 = 0
         index2 = self.numMovBodiesx3
         for bodyIndex in range(1, self.numBodies):
@@ -790,7 +790,7 @@ class SimMainC:
             if Debug:
                 ST.Mess("Delta constraints Result:")
                 ST.PrintNp1D(True, Deltaconstraint)
-                
+
             # Evaluate Jacobian
             Jacobian = self.GetJacobian()
             if Debug:
@@ -798,7 +798,7 @@ class SimMainC:
                 ST.PrintNp2D(Jacobian)
 
             # Determine any redundancy between constraints
-            redundant = np.linalg.matrix_rank(Jacobian) 
+            redundant = np.linalg.matrix_rank(Jacobian)
             if redundant < self.numConstraints:
                 CAD.Console.PrintError('The constraints exhibit Redundancy while correcting initial conditions\n')
                 return False
@@ -821,7 +821,7 @@ class SimMainC:
                 self.NPbody_r[bodyIndex, 0] += delta[(bodyIndex-1)*3]
                 self.NPbody_r[bodyIndex, 1] += delta[(bodyIndex-1)*3+1]
                 self.NPbody_phi[bodyIndex] += delta[(bodyIndex-1)*3+2]
-                
+
         CAD.Console.PrintError("Newton-Raphson Correction failed to converge\n\n")
         return True
     #  -------------------------------------------------------------------------
@@ -871,7 +871,7 @@ class SimMainC:
         from the defined constraints"""
 
         deltaConstraintNp = np.zeros((self.numConstraints,), dtype=np.float64)
-        
+
         # Call the applicable function which is pointed to by the constraint function dictionary
         for joint in self.jointGroup:
             if hasattr(joint, "SimJoint") and ST.JOINT_TYPE_DICTIONARY[joint.SimJoint] <= ST.MAXNUMJOINTTYPES:
@@ -1045,11 +1045,11 @@ class SimMainC:
         Pj = Joints(Ji).jPindex;
         Bi = Joints(Ji).iBindex;
         Bj = Joints(Ji).jBindex;
-        
+
         d = Points(Pi).rP - Points(Pj).rP;
         d_d = Points(Pi).rP_d - Points(Pj).rP_d;
         L = Joints(Ji).L;
-        
+
         u = d / L;
         u_d = d_d / L;
 

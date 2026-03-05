@@ -1,7 +1,7 @@
 # ********************************************************************************
 # *                                                                              *
 # *   This program is free software; you can redistribute it and/or modify       *
-# *   it under the terms of the GNU General Public License v3.0 only             *
+# *   it under the terms of the GNU General Public License V3.0 or later         *
 # *   as published by the Free Software Foundation                               *
 # *   for detail see the LICENCE text file.                                      *
 # *                                                                              *
@@ -92,7 +92,7 @@ class TaskPanelSimSolverClass:
             solverTaskObject.Directory = getcwd()
 
         # Load the taskDialog form information
-        ui_path = path.join(path.dirname(__file__), "TaskPanelSimSolver.ui")
+        ui_path = path.join(path.dirname(__file__), "Qt/TaskPanelSimSolver.ui")
         self.form = CADGui.PySideUic.loadUi(ui_path)
 
         # Set up actions on the solver button
@@ -269,7 +269,7 @@ class TaskPanelSimAnimateClass:
         self.playBackPeriod = 100  # msec
 
         # Load the Sim Animate ui form
-        ui_Path = path.join(path.dirname(__file__), "TaskPanelSimAnimate.ui")
+        ui_Path = path.join(path.dirname(__file__), "Qt/TaskPanelSimAnimate.ui")
         self.form = CADGui.PySideUic.loadUi(ui_Path)
 
         # Define callback functions when changes are made in the dialog

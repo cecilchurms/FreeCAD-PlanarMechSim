@@ -1,7 +1,7 @@
 # ********************************************************************************
 # *                                                                              *
 # *   This program is free software; you can redistribute it and/or modify       *
-# *   it under the terms of the GNU General Public License v3.0 only             *
+# *   it under the terms of the GNU General Public License V3.0 or later         *
 # *   as published by the Free Software Foundation                               *
 # *   for detail see the LICENCE text file.                                      *
 # *                                                                              *

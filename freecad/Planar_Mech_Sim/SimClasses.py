@@ -1,7 +1,7 @@
 # ********************************************************************************
 # *                                                                              *
 # *   This program is free software; you can redistribute it and/or modify       *
-# *   it under the terms of the GNU General Public License v3.0 only             *
+# *   it under the terms of the GNU General Public License V3.0 or later         *
 # *   as published by the Free Software Foundation                               *
 # *   for detail see the LICENCE text file.                                      *
 # *                                                                              *
@@ -190,19 +190,19 @@ class SimGlobalClass:
                 ST.addObjectProperty(forceObj, "bodyForceHeadName", "", "App::PropertyString", "Bodies", "Name of the head body")
                 ST.addObjectProperty(forceObj, "bodyForceHeadLabel", "", "App::PropertyString", "Bodies", "Label of the head body")
                 ST.addObjectProperty(forceObj, "bodyForceHeadIndex", -1, "App::PropertyInteger", "Bodies", "Index of the head body in the NumPy array")
-                
+
                 ST.addObjectProperty(forceObj, "pointForceHeadName", "", "App::PropertyString", "Points", "Name of the first point of the force")
                 ST.addObjectProperty(forceObj, "pointForceHeadLabel", "", "App::PropertyString", "Points", "Label of the first point of the force")
                 ST.addObjectProperty(forceObj, "pointForceHeadIndex", -1, "App::PropertyInteger", "Points", "Index of the first point of the force in the NumPy array")
-                
+
                 ST.addObjectProperty(forceObj, "bodyForceTailName", "", "App::PropertyString", "Bodies", "Name of the tail body")
                 ST.addObjectProperty(forceObj, "bodyForceTailLabel", "", "App::PropertyString", "Bodies", "Label of the tail body")
                 ST.addObjectProperty(forceObj, "bodyForceTailIndex", -1, "App::PropertyInteger", "Bodies", "Index of the tail body in the NumPy array")
-                
+
                 ST.addObjectProperty(forceObj, "pointForceTailName", "", "App::PropertyString", "Points", "Name of the second point of the force")
                 ST.addObjectProperty(forceObj, "pointForceTailLabel", "", "App::PropertyString", "Points", "Label of the second point of the force")
                 ST.addObjectProperty(forceObj, "pointForceTailIndex", 0, "App::PropertyInteger", "Points", "Index of the second point of the force in the NumPy array")
-                
+
                 ST.addObjectProperty(forceObj, "Stiffness", 0.0, "App::PropertyFloat", "Values", "Spring Stiffness")
                 ST.addObjectProperty(forceObj, "LengthAngle0", 0.0, "App::PropertyFloat", "Values", "Un-deformed Length/Angle")
                 ST.addObjectProperty(forceObj, "DampingCoeff", 0.0, "App::PropertyFloat", "Values", "Damping coefficient")
