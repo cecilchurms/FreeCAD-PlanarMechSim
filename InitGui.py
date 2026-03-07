@@ -96,12 +96,12 @@ class PlanarMechSim(Gui.Workbench):
         """Called on the first selection of the PlanarMechSim Workbench
         and couples the main PlanarMechSim functions to the FreeCAD interface"""
 
-        import SimCommands as SimCommands
+        import SimCommands as SimCom
 
         # Add the commands to FreeCAD's list of functions
-        FreeCADGui.addCommand("SimGlobalAlias", SimCommands.CommandSimGlobalClass())
-        FreeCADGui.addCommand("SimSolverAlias", SimCommands.CommandSimSolverClass())
-        FreeCADGui.addCommand("SimAnimationAlias", SimCommands.CommandSimAnimationClass())
+        FreeCADGui.addCommand("SimGlobalAlias", SimCom.CommandSimGlobalClass())
+        FreeCADGui.addCommand("SimSolverAlias", SimCom.CommandSimSolverClass())
+        FreeCADGui.addCommand("SimAnimationAlias", SimCom.CommandSimAnimationClass())
 
         # Create a toolbar item with the Sim commands (icons)
         self.appendToolbar("PlanarMechSim Commands", self.MakeCommandList())
