@@ -65,9 +65,9 @@
 # ********************************************************************************
 import FreeCAD as CAD
 import FreeCADGui as CADGui
-import SimTools as ST
+import freecad.PlanarMechSim.SimTools as ST
 
-import SimMain
+import freecad.PlanarMechSim.SimMain as SimMain
 
 from PySide import QtGui, QtCore
 import Part

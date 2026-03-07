@@ -66,6 +66,8 @@
 import FreeCAD
 import FreeCADGui
 
+from FreeCAD import Gui
+
 global Debug
 
 # =============================================================================
@@ -74,7 +76,7 @@ global Debug
 # 2. Builds the graphical interface between the workbench and FreeCAD
 # 3. Couples the graphical interface of FreeCAD with the functions of the workbench
 # =============================================================================
-class PlanarMechSim(Workbench):
+class PlanarMechSim(Gui.Workbench):
     """This class encompasses the whole PlanarMechSim workbench"""
     #  -------------------------------------------------------------------------
     def __init__(self):
@@ -84,7 +86,7 @@ class PlanarMechSim(Workbench):
         # it simply returns os.path.join(os.path.dirname(__file__), iconDir, iconName)
         # We define this method in a separate module so that the __file__ variable is valid
         # which makes the program portable as to where in the file system it is located
-        from SimMakes import getIconPath
+        from .SimMakes import getIconPath
 
         # Set up the text for the Sim workbench option, the PlanarMechSim icon, and the tooltip
         self.__class__.Icon = getIconPath("Resources/Icons", "Icon1n.png")
@@ -95,7 +97,7 @@ class PlanarMechSim(Workbench):
         """Called on the first selection of the PlanarMechSim Workbench
         and couples the main PlanarMechSim functions to the FreeCAD interface"""
 
-        import SimCommands
+        import freecad.PlanarMechSim.SimCommands as SimCommands
 
         # Add the commands to FreeCAD's list of functions
         FreeCADGui.addCommand("SimGlobalAlias", SimCommands.CommandSimGlobalClass())
