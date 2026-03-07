@@ -89,7 +89,7 @@ import numpy as np
 from scipy.integrate import solve_ivp
 import math
 
-import freecad.PlanarMechSim.SimTools as ST
+import SimTools as ST
 
 Debug = False
 # =============================================================================

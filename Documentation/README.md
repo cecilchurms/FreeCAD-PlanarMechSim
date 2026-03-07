@@ -7,4 +7,4 @@
 
 
 [Usage]: ../README.md
-[Demos]: ../freecad/Planar_Mech_Sim/Resources/Demo-Models/
+[Demos]: ../Resources/Demo-Models/

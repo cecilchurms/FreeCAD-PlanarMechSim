@@ -66,10 +66,10 @@
 import FreeCAD as CAD
 import FreeCADGui as CADGui
 
-import freecad.PlanarMechSim.SimTools as ST
-import freecad.PlanarMechSim.SimMakes as SM
-import freecad.PlanarMechSim.SimViewProvider as SV
-import freecad.PlanarMechSim.SimTaskPanels as SP
+import SimTools as ST
+import SimMakes as SM
+import SimViewProvider as SV
+import SimTaskPanels as SP
 
 from PySide import QtCore
 

@@ -107,7 +107,7 @@ By way of example, a spreadsheet window is reproduced below, showing the values 
 
 ## Demonstration Models
 
-Demonstration models are available to illustrate some of the various situations which PlanarMechSim can simulate.  These can be found in the PlanarMechSim addon directory of your FreeCAD. In Linux, the add-on directory is often found at "**.local/share/FreeCAD/Mod/PlanarMechSim/** and hence the demo models can be found in "**.local/share/FreeCAD/Mod/PlanarMechSim/freecad/Planar_Mech_Sim/Resources/Demo-Models/**.  Equivalent locations exist under **My Documents** in Windows distributions.  The exact location can depend on your distribution, and how you originally installed FreeCAD. Alternatively, the demo models can be found on github at https://github.com/cecilchurms/FreeCAD-PlanarMechSim/tree/master/freecad/Planar_Mech_Sim/Resources/Demo-Models.
+Demonstration models are available to illustrate some of the various situations which PlanarMechSim can simulate.  These can be found in the PlanarMechSim addon directory of your FreeCAD. In Linux, the add-on directory is often found at "**.local/share/FreeCAD/Mod/PlanarMechSim/** and hence the demo models can be found in "**.local/share/FreeCAD/Mod/PlanarMechSim/Resources/Demo-Models/**.  Equivalent locations exist under **My Documents** in Windows distributions.  The exact location can depend on your distribution, and how you originally installed FreeCAD. Alternatively, the demo models can be found on github at https://github.com/cecilchurms/FreeCAD-PlanarMechSim/tree/master/Resources/Demo-Models.
 
 To run the demonstration, simply:
 

@@ -65,9 +65,8 @@
 # ********************************************************************************
 import FreeCAD as CAD
 import FreeCADGui as CADGui
-import freecad.PlanarMechSim.SimTools as ST
-
-import freecad.PlanarMechSim.SimMain
+import SimTools as ST
+import SimMain as SM
 
 from PySide import QtGui, QtCore
 import Part
@@ -182,7 +181,7 @@ class TaskPanelSimSolverClass:
         self.solverTaskObject.Accuracy = self.form.Accuracy.value()
 
         # Instantiate the SimMainC class and run the solver
-        self.SimMainC_Instance = SimMain.SimMainC(self.solverTaskObject.TimeLength,
+        self.SimMainC_Instance = SM.SimMainC(self.solverTaskObject.TimeLength,
                                                      self.solverTaskObject.DeltaTime,
                                                      self.solverTaskObject.Accuracy,
                                                      self.form.correctInitial.isChecked())

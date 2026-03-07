@@ -65,8 +65,8 @@
 # ********************************************************************************
 import FreeCAD as CAD
 import FreeCADGui as CADGui
-import freecad.PlanarMechSim.SimTaskPanels as SP
-import freecad.PlanarMechSim.SimMakes as SM
+import SimTaskPanels as SP
+import SimMakes as SM
 
 from pivy import coin
 

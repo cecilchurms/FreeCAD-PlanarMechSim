@@ -65,7 +65,7 @@
 # ********************************************************************************
 import FreeCAD as CAD
 import FreeCADGui as CADGui
-import freecad.PlanarMechSim.SimTools as ST
+import SimTools as ST
 
 # =============================================================================
 class SimGlobalClass:

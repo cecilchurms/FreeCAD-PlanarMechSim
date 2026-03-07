@@ -1,12 +1,14 @@
 <?xml version = '1.0.0' encoding = 'UTF-8' standalone = 'no' ?>
+
 <package
     format = '1'
     xmlns = 'https://wiki.freecad.org/Package_Metadata'
->
-
+    >
+  
     <!--[ Info ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
-    <description> A Planar Real-World Mechanical Simulator Workbench</description>
+    <description>A Planar Real-World Mechanical Simulator Workbench</description>
     <name>PlanarMechSim</name>
+    <classname>PlanarMechSim</classname>
 
     <!--[ Versions ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -26,6 +28,10 @@
         version_gte = '1.17.0'
         type = 'python'
     >scipy</depend>
+
+    <depend
+        type = 'internal'
+    >assembly</depend>
 
     <!--[ Tags ]―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
@@ -49,7 +55,7 @@
 
     <license
         file = 'LICENSE-Code'
-    >LGPL-3.0-or-later</license>
+    >GPL-3.0-or-later</license>
 
     <license
         file = 'LICENSE-Assets'
@@ -66,9 +72,9 @@
 	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/blob/master/README.md</url>
 
     <url
-        branch = 'master'
         type = 'repository'
-	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim/</url>
+        branch = 'master'
+	>https://github.com/cecilchurms/FreeCAD-PlanarMechSim</url>
 
     <url
         type = 'bugtracker'
@@ -81,9 +87,10 @@
     <!--[ Content ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <content>
-      <workbench>
+        <workbench>
             <subdirectory>.</subdirectory>
             <classname>PlanarMechSim</classname>
-      </workbench>
+        </workbench>
+    </content>
 
 </package>
