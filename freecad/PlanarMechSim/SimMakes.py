@@ -65,8 +65,8 @@
 # ********************************************************************************
 import FreeCAD as CAD
 import FreeCADGui as CADGui
-import SimClasses as SC
-import SimViewProvider as SV
+import freecad.PlanarMechSim.SimClasses as SC
+import freecad.PlanarMechSim.SimViewProvider as SV
 from os import path
 
 # =============================================================================
