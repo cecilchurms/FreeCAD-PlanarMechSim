@@ -81,6 +81,9 @@
     <!--[ Content ]――――――――――――――――――――――――――――――――――――――――――――――――――――――――――-->
 
     <content>
-    </content>
+      <workbench>
+            <subdirectory>.</subdirectory>
+            <classname>PlanarMechSim</classname>
+      </workbench>
 
 </package>
